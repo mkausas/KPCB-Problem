@@ -3,6 +3,7 @@
  * 
  * Returns an instance of the class with pre-allocated 
  * space for the given number of objects.
+ * @author { Marty Kausas }
  * @constructor
  * @throws error on invalid inputs
  */
@@ -95,7 +96,6 @@ function CustomHashMap(size) {
 
 		for (j in buckets[i]) {
  			if (buckets[i][j][0] == key) {
- 				console.log("buckets[i][j] = " + buckets[i][j]);
  				totalItems--;
  				return buckets[i][j].splice(0)[1];
  			}
@@ -118,8 +118,6 @@ function CustomHashMap(size) {
 
 
 	/** HELPER FUNCTIONS **/
-
-	// basic hashing function
 
 	/**
      * Return an hashed index based on the given key.
