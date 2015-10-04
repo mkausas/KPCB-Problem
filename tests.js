@@ -1,14 +1,4 @@
-/**
- * Unit tests created using QUnit { http://qunitjs.com }
- */
-
-function basicHashMap() {
-	var hashMap = new CustomHashMap(30);
-	hashMap.set("Build for", "Good");
-	hashMap.set("for Build", "Switched");
-	hashMap.set("tres commas", 1000000000);
-	hashMap.set("tres commas", "1,000,000,000");
-}
+// Unit tests created using QUnit { http://qunitjs.com }
 
 // contructor tests
 QUnit.test("CustomHashMap(size)", function( assert ) {

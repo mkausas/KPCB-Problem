@@ -1,7 +1,10 @@
 /**
- * Custom Hash Map created for KPCB Fellows Application
- *
- * @author { Marty Kausas } 
+ * Construct a new CustomHashMap.
+ * 
+ * Returns an instance of the class with pre-allocated 
+ * space for the given number of objects.
+ * @constructor
+ * @throws error on invalid inputs
  */
 function CustomHashMap(size) {
 
@@ -17,7 +20,10 @@ function CustomHashMap(size) {
 
 	/** REQUIRED METHODS **/
 
-	// set(key, value) 
+    /**
+     * Stores the given key/value pair in the hash map. 
+     * Returns a boolean value indicating success / failure of the operation.
+     */
 	this.set = function(key, value) {
 		if (!validateInput(key)) {
 			throw "INVALID PARAMETER: " + key + " is not of type \"string\"";
@@ -57,8 +63,11 @@ function CustomHashMap(size) {
 		return false;
 	};
 
-	// get(key)
-	this.get = function(key) {
+    /**
+     * Return the value associated with the given key, 
+     * or null if no value is set.
+     */
+    this.get = function(key) {
 		if (!validateInput(key)) {
 			throw "INVALID PARAMETER: " + key + " is not of type \"string\"";
 		} 
@@ -73,7 +82,10 @@ function CustomHashMap(size) {
 		return null;
 	};
 
-	// delete(key)
+    /**
+     * Delete the value associated with the given key, 
+     * returning the value on success or null if the key has no value.
+     */
 	this.delete = function(key) {
 		if (!validateInput(key)) {
 			throw "INVALID PARAMETER: " + key + " is not of type \"string\"";
@@ -92,18 +104,26 @@ function CustomHashMap(size) {
  		return null;
 	};
 
-	// load()
-	this.load = function() {
+    /**
+     * Return a float value representing the load factor 
+     * (`(items in hash map)/(size of hash map)`) of the data structure. 
+     * Since the size of the dat structure is fixed, 
+     * this should never be greater than 1.
+     */
+    this.load = function() {
 		return totalItems / length; 
 	};
 
 	/** END REQUIRED METHODS **/
 
-//======================================
 
 	/** HELPER FUNCTIONS **/
 
 	// basic hashing function
+
+	/**
+     * Return an hashed index based on the given key.
+     */
 	var hashCode = function(key) {
 		var sum = 0;
 
@@ -115,14 +135,11 @@ function CustomHashMap(size) {
 		return sum % length;  
 	};
 
-	// check for valid input
+	/**
+     * Checks that a key is of type string.
+     */
 	var validateInput = function(key) {
 		return typeof key == "string";
-	};
-
-
-	this.printBuckets = function() {
-		console.log(buckets);
 	};
 	/** END HELPER FUNCTIONS **/
 
